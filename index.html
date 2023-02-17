@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">   
+    <link href="assets/css/style.css" rel="stylesheet">
 
 
 
@@ -107,13 +107,21 @@
         let btn = document.getElementById('btn');
         let title = document.getElementById('title');
 
+        // Menjalankan fungsi scrollFunction() ketika window discroll
         window.addEventListener('scroll', function () {
+            requestAnimationFrame(scrollFunction);
+        });
+
+        function scrollFunction() {
+            // Menentukan posisi scroll saat ini
             let value = window.scrollY;
-            console.log(value);
-            title.style.top = value * 0.5 + 'px';
-            // gunung1.style.top = value * 1 + 'px';
-            btn.style.top = value * 0.5 + 'px'; 
-        })
+
+            // Menggerakkan elemen title
+            title.style.transform = "translateY(" + value * 0.5 + "px)";
+
+            // Menggerakkan elemen btn
+            btn.style.transform = "translateY(" + value * 0.5 + "px)";
+        }
     </script>
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
